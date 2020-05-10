@@ -1,0 +1,17 @@
+﻿@model MovieCategoryModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        @await Html.PartialAsync("_Menu", Model.Categories)
+        @*await Component.InvokeAsync("CategoryMenu")*@
+        @*<partial name="_Menu" model="Model.Categories" />*@
+    </div>
+    <div class="col-md-9">
+        @await Html.PartialAsync("_Movies", Model.Movies)
+        @*<partial name="_Movies" model="Model.Movies" />*@
+    </div>
+</div>

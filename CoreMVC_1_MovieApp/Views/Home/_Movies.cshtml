@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Movie>
+
+@foreach (var movie in Model)
+{
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img src="~/img/@movie.ImageUrl" alt="@movie.Description" class="card-img" />
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="/Home/Details/@movie.Id">@movie.Name</a>
+                        @*<a asp-controller="Home" asp-action="Details" asp-route-id="@movie.Id">@movie.Name</a>*@
+                    </h5>
+                    <p class="card-text">
+                        @movie.ShortDescription
+                    </p>
+                    <p class="card-text">
+                        @{
+                            var random = new Random();
+                            int randomDay = random.Next(1, 10);
+                        }
+                        <small class="text-muted">@randomDay days ago.</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
